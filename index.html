@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohd. Hamza — Digital Marketing Executive</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --card: #16161f;
+    --accent: #ff5c35;
+    --accent2: #ffb547;
+    --text: #f0ede8;
+    --muted: #888;
+    --border: #222230;
+    --glow: rgba(255, 92, 53, 0.15);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: .4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-bg-circle.c1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,92,53,0.12) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    animation: pulse 6s ease-in-out infinite;
+  }
+  .hero-bg-circle.c2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,181,71,0.08) 0%, transparent 70%);
+    bottom: 50px; left: 10%;
+    animation: pulse 8s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,92,53,0.1);
+    border: 1px solid rgba(255,92,53,0.3);
+    color: var(--accent);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-name .accent { color: var(--accent); }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-desc {
+    color: #aaa;
+    font-size: 1rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: #ff7052;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255,92,53,0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover {
+    border-color: var(--muted);
+    transform: translateY(-2px);
+  }
+
+  /* hero right — stats */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+  }
+  .stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,92,53,0.3);
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .stat-card:hover::before { opacity: 1; }
+
+  .stat-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .stat-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 500px;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── SERVICES / SKILLS ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    border-color: rgba(255,92,53,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px var(--glow);
+  }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: rgba(255,92,53,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+    transition: background 0.3s;
+  }
+  .service-card:hover .service-icon { background: rgba(255,92,53,0.2); }
+
+  .service-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-desc { font-size: 0.88rem; color: #888; line-height: 1.7; }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--surface); }
+
+  .exp-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .exp-sidebar { position: sticky; top: 7rem; }
+
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-company {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-period {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255,181,71,0.1);
+    border: 1px solid rgba(255,181,71,0.25);
+    color: var(--accent2);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .exp-areas {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .exp-area {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: border-color 0.3s;
+  }
+  .exp-area:hover { border-color: rgba(255,92,53,0.3); }
+
+  .exp-area-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .exp-area-title span {
+    font-size: 1.1rem;
+  }
+
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .exp-bullets li {
+    font-size: 0.88rem;
+    color: #aaa;
+    padding-left: 1.1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+    top: 2px;
+  }
+
+  /* ── TOOLS ── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .tool-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: all 0.25s;
+    cursor: default;
+  }
+  .tool-card:hover {
+    border-color: rgba(255,92,53,0.35);
+    transform: translateY(-4px);
+    background: #1a1a25;
+  }
+
+  .tool-emoji { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .tool-name { font-size: 0.82rem; font-weight: 500; color: var(--text); }
+  .tool-cat { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+
+  /* ── PROJECT ── */
+  #project { background: var(--surface); }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    transition: border-color 0.3s;
+  }
+  .project-card:hover { border-color: rgba(255,92,53,0.3); }
+
+  .project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255,181,71,0.1);
+    border: 1px solid rgba(255,181,71,0.2);
+    color: var(--accent2);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .project-title a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .project-title a:hover { text-decoration: underline; }
+
+  .project-desc { color: #aaa; font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.5rem; }
+
+  .project-feats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .project-feat {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: #aaa;
+  }
+  .project-feat-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  /* Browser mockup */
+  .browser-mockup {
+    background: #1a1a25;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .browser-bar {
+    background: #111118;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .browser-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .browser-url {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-left: 0.5rem;
+    flex: 1;
+    font-family: monospace;
+  }
+  .browser-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .browser-line {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+  }
+  .browser-line.short { width: 40%; }
+  .browser-line.medium { width: 70%; }
+  .browser-line.accent-line { background: rgba(255,92,53,0.3); width: 55%; }
+  .browser-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .browser-block {
+    height: 50px;
+    background: var(--border);
+    border-radius: 8px;
+  }
+
+  /* ── SKILLS BARS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .skill-item { margin-bottom: 1.25rem; }
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .skill-pct { color: var(--muted); font-size: 0.8rem; }
+
+  .skill-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform-origin: left;
+    animation: barGrow 1.2s ease both;
+  }
+
+  @keyframes barGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* ── EDUCATION & CERTS ── */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+  .edu-card:hover {
+    border-color: rgba(255,92,53,0.3);
+    transform: translateY(-4px);
+  }
+
+  .edu-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .edu-inst { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.25rem; }
+  .edu-detail { font-size: 0.8rem; color: var(--muted); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--surface); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .contact-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.25s;
+  }
+  .contact-link:hover {
+    border-color: rgba(255,92,53,0.4);
+    transform: translateX(6px);
+  }
+  .contact-link-icon {
+    width: 40px; height: 40px;
+    background: rgba(255,92,53,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .contact-link-text { font-size: 0.88rem; }
+  .contact-link-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.15rem; }
+  .contact-link-value { font-weight: 500; }
+
+  .lang-badges {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: var(--text);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 5rem 1.5rem 3rem; }
+    .hero-content, .services-grid, .exp-container, .tools-grid,
+    .project-card, .skills-grid, .edu-grid, .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .exp-sidebar { position: static; }
+    .tools-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">MH<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#project">Project</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag">Available for Opportunities</div>
+      <h1 class="hero-name">Mohd.<br><span class="accent">Hamza</span></h1>
+      <p class="hero-title">Digital Marketing Executive</p>
+      <p class="hero-desc">SEO strategist, Google & Meta Ads specialist, and analytics-driven marketer helping brands grow their digital presence with measurable results.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get in Touch →</a>
+        <a href="#experience" class="btn btn-outline">See My Work</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-icon">📈</div>
+        <div class="stat-value">SEO</div>
+        <div class="stat-label">On-page, Technical & Off-page</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-value">Ads</div>
+        <div class="stat-label">Google Search, Display & Meta</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <div class="stat-value">GA4</div>
+        <div class="stat-label">Analytics & Reporting</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🌐</div>
+        <div class="stat-value">WP</div>
+        <div class="stat-label">WordPress Site Management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What I Do</div>
+    <h2 class="section-title">Core Services</h2>
+    <p class="section-sub">A full stack of digital marketing expertise — from organic search to paid campaigns and analytics.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <div class="service-name">Search Engine Optimization</div>
+        <div class="service-desc">End-to-end SEO covering keyword research, on-page optimization, technical audits, and link building to drive sustainable organic growth.</div>
+        <div class="service-tags">
+          <span class="tag">Keyword Research</span>
+          <span class="tag">On-Page SEO</span>
+          <span class="tag">Technical SEO</span>
+          <span class="tag">Link Building</span>
+          <span class="tag">Local SEO</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <div class="service-name">Google Ads Management</div>
+        <div class="service-desc">Creation and optimization of Search, Display, and Remarketing campaigns — built to lower CPC, improve ROAS, and generate qualified leads.</div>
+        <div class="service-tags">
+          <span class="tag">Search Campaigns</span>
+          <span class="tag">Display Ads</span>
+          <span class="tag">Remarketing</span>
+          <span class="tag">Negative Keywords</span>
+          <span class="tag">A/B Testing</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-name">Meta Ads — Facebook & Instagram</div>
+        <div class="service-desc">Paid social campaigns focused on lead generation and traffic, with precise audience targeting and Meta Pixel setup for accurate conversion tracking.</div>
+        <div class="service-tags">
+          <span class="tag">Lead Generation</span>
+          <span class="tag">Custom Audiences</span>
+          <span class="tag">Lookalike Audiences</span>
+          <span class="tag">Meta Pixel</span>
+          <span class="tag">CRO</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📣</div>
+        <div class="service-name">Social Media Marketing</div>
+        <div class="service-desc">Consistent profile management across Instagram, Facebook, LinkedIn, and Twitter with content creation, Reels, Stories, and community engagement.</div>
+        <div class="service-tags">
+          <span class="tag">Instagram</span>
+          <span class="tag">Facebook</span>
+          <span class="tag">LinkedIn</span>
+          <span class="tag">Reels & Stories</span>
+          <span class="tag">SMO</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <div class="service-name">Analytics & Reporting</div>
+        <div class="service-desc">Data-driven decision making using GA4, Google Search Console, and weekly performance reports covering SEO, paid ads, and social media reach.</div>
+        <div class="service-tags">
+          <span class="tag">GA4</span>
+          <span class="tag">Search Console</span>
+          <span class="tag">Google Tag Manager</span>
+          <span class="tag">Weekly Reports</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <div class="service-name">WordPress Management</div>
+        <div class="service-desc">Building and managing fully responsive WordPress websites using Elementor — designed for performance, SEO, and great user experience.</div>
+        <div class="service-tags">
+          <span class="tag">WordPress</span>
+          <span class="tag">Elementor</span>
+          <span class="tag">Responsive Design</span>
+          <span class="tag">On-Page SEO</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Work Experience</h2>
+    <p class="section-sub">Hands-on experience across SEO, paid advertising, social media, and analytics.</p>
+
+    <div class="exp-container">
+      <div class="exp-sidebar">
+        <div class="exp-role">Digital Marketing Intern</div>
+        <div class="exp-company">NDMIT Institute, Varanasi</div>
+        <br>
+        <span class="exp-period">📅 Oct 2025 – Mar 2026</span>
+        <br><br>
+        <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">Gained practical, hands-on experience across all major digital marketing disciplines — from organic search to paid campaigns and performance analytics.</p>
+      </div>
+
+      <div class="exp-areas">
+
+        <div class="exp-area">
+          <div class="exp-area-title"><span>🔍</span> Search Engine Optimization</div>
+          <ul class="exp-bullets">
+            <li>Identified target keywords using Google Keyword Planner by analyzing search volume, user intent, and competition level</li>
+            <li>Optimized on-page elements including page titles, meta descriptions, header tags, image alt text, and internal links</li>
+            <li>Performed technical SEO audits to detect and fix slow page speed, broken links, mobile errors, and duplicate content</li>
+            <li>Built backlinks through manual outreach, guest posting, and niche directory submissions to strengthen domain authority</li>
+          </ul>
+        </div>
+
+        <div class="exp-area">
+          <div class="exp-area-title"><span>🎯</span> Google Ads — Campaign Management</div>
+          <ul class="exp-bullets">
+            <li>Created and managed Search, Display, and Remarketing campaigns with defined objectives and structured ad groups</li>
+            <li>Wrote ad copy with relevant keywords, clear CTAs, and added sitelinks, callouts, and structured snippets</li>
+            <li>Used negative keyword lists and audience exclusions to filter irrelevant traffic and maximize budget efficiency</li>
+            <li>Adjusted bids, budgets, and targeting based on performance data to lower CPC and improve campaign efficiency</li>
+          </ul>
+        </div>
+
+        <div class="exp-area">
+          <div class="exp-area-title"><span>📱</span> Meta Ads — Facebook & Instagram</div>
+          <ul class="exp-bullets">
+            <li>Planned and ran paid campaigns on Facebook and Instagram focused on lead generation and landing page traffic</li>
+            <li>Tested different ad formats, visuals, and copy to identify combinations with the best CTR and conversion rates</li>
+            <li>Built targeted audiences using custom lists, lookalike audiences, and interest-based and behavioral targeting</li>
+            <li>Set up Meta Pixel to track user actions, measure conversions, and feed data back into audience targeting</li>
+          </ul>
+        </div>
+
+        <div class="exp-area">
+          <div class="exp-area-title"><span>📊</span> Performance Marketing & Analytics</div>
+          <ul class="exp-bullets">
+            <li>Tracked campaign performance daily using CTR, CPC, CPA, and ROAS to spot trends and make timely adjustments</li>
+            <li>Ran A/B tests on ad creatives, landing page headlines, and CTAs to make decisions based on actual results</li>
+            <li>Prepared weekly performance reports covering SEO rankings, paid ad results, and social media reach</li>
+            <li>Managed business profiles on Instagram, Facebook, LinkedIn, and Twitter with consistent, engaging content</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="container">
+    <div class="section-label">Stack</div>
+    <h2 class="section-title">Tools & Platforms</h2>
+    <p class="section-sub">The tech I use to plan, execute, and measure marketing campaigns.</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-emoji">🔑</div>
+        <div class="tool-name">Google Keyword Planner</div>
+        <div class="tool-cat">Keyword Research</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">📊</div>
+        <div class="tool-name">Google Analytics 4</div>
+        <div class="tool-cat">Web Analytics</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">🔍</div>
+        <div class="tool-name">Google Search Console</div>
+        <div class="tool-cat">SEO Monitoring</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">🏷️</div>
+        <div class="tool-name">Google Tag Manager</div>
+        <div class="tool-cat">Tag Management</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">📢</div>
+        <div class="tool-name">Google Ads Manager</div>
+        <div class="tool-cat">PPC Advertising</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">📘</div>
+        <div class="tool-name">Meta Business Suite</div>
+        <div class="tool-cat">Social Advertising</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">🌐</div>
+        <div class="tool-name">WordPress & Elementor</div>
+        <div class="tool-cat">Web Management</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">🎨</div>
+        <div class="tool-name">Canva & Canva AI</div>
+        <div class="tool-cat">Design & Creative</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">🤖</div>
+        <div class="tool-name">ChatGPT</div>
+        <div class="tool-cat">AI Assistant</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">🛠️</div>
+        <div class="tool-name">Small SEO Tools</div>
+        <div class="tool-cat">SEO Utilities</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">🔎</div>
+        <div class="tool-name">SEOquake</div>
+        <div class="tool-cat">SEO Analysis</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">📈</div>
+        <div class="tool-name">Platform Analytics</div>
+        <div class="tool-cat">Social Insights</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Featured Project</h2>
+    <p class="section-sub">A live, self-built digital marketing website used as an active portfolio.</p>
+
+    <div class="project-card">
+      <div>
+        <div class="project-badge">🚀 Self-Initiated</div>
+        <h3 class="project-title"><a href="https://digishinee.in" target="_blank">digishinee.in</a></h3>
+        <p class="project-desc">Built a fully functional personal digital marketing website from scratch using WordPress and Elementor — no external developer support. Designed as a live portfolio to showcase skills, certifications, and completed work.</p>
+        <div class="project-feats">
+          <div class="project-feat"><div class="project-feat-dot"></div><span>Designed all key pages — Home, About, Services, and Contact — with clean navigation and strong UX</span></div>
+          <div class="project-feat"><div class="project-feat-dot"></div><span>Applied on-page SEO: keyword-focused titles, meta descriptions, optimized headings and image alt tags</span></div>
+          <div class="project-feat"><div class="project-feat-dot"></div><span>Fully responsive across mobile, tablet, and desktop devices</span></div>
+          <div class="project-feat"><div class="project-feat-dot"></div><span>Used as a live portfolio displaying skills, certifications, and marketing work</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="browser-mockup">
+          <div class="browser-bar">
+            <div class="browser-dot" style="background:#ff5f56"></div>
+            <div class="browser-dot" style="background:#ffbd2e"></div>
+            <div class="browser-dot" style="background:#27c93f"></div>
+            <div class="browser-url">digishinee.in</div>
+          </div>
+          <div class="browser-content">
+            <div class="browser-line accent-line"></div>
+            <div class="browser-line medium"></div>
+            <div class="browser-line short"></div>
+            <div class="browser-line medium"></div>
+            <div class="browser-blocks">
+              <div class="browser-block"></div>
+              <div class="browser-block" style="background:rgba(255,92,53,0.15)"></div>
+              <div class="browser-block"></div>
+            </div>
+            <div class="browser-line" style="margin-top:0.5rem"></div>
+            <div class="browser-line medium"></div>
+            <div class="browser-line short"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Proficiency</div>
+    <h2 class="section-title">Skill Levels</h2>
+    <p class="section-sub">Self-assessed proficiency across core digital marketing domains.</p>
+
+    <div class="skills-grid">
+      <div>
+        <div class="skill-item">
+          <div class="skill-header"><span>SEO (On-Page & Technical)</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Google Ads</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Meta Ads</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Google Analytics 4</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Social Media Marketing</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Link Building & Off-Page SEO</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>WordPress & Elementor</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Conversion Rate Optimization</span><span class="skill-pct">70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-label">Background</div>
+    <h2 class="section-title">Education & Certifications</h2>
+    <p class="section-sub">Academic foundation combined with industry-focused digital marketing training.</p>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">BCA — Bachelor of Computer Applications</div>
+        <div class="edu-inst">Mahatma Gandhi Kashi Vidyapith (MGKVP), Varanasi</div>
+        <div class="edu-detail">Final Year Student</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">📜</div>
+        <div class="edu-degree">Digital Marketing — Professional Course</div>
+        <div class="edu-inst">NDMIT — National Digital Marketing Institute & Training</div>
+        <div class="edu-detail">NDMCC Certified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Let's Talk</div>
+        <h2 class="contact-title">Ready to grow your brand?</h2>
+        <p style="color:var(--muted);font-weight:300;line-height:1.8;">Whether you need SEO, Google Ads, Meta campaigns, or a full digital marketing strategy — I'm open to new opportunities and collaborations.</p>
+        <div class="lang-badges">
+          <span class="lang-badge">🇬🇧 English</span>
+          <span class="lang-badge">🇮🇳 Hindi</span>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="tel:+919555761415" class="contact-link">
+          <div class="contact-link-icon">📞</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">Phone</div>
+            <div class="contact-link-value">+91 9555761415</div>
+          </div>
+        </a>
+        <a href="mailto:mohdhamza91@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉️</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">mohdhamza91@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://digishinee.in" target="_blank" class="contact-link">
+          <div class="contact-link-icon">🌐</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">Website</div>
+            <div class="contact-link-value">digishinee.in</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Mohd. Hamza — Digital Marketing Executive &nbsp;·&nbsp; Built with ❤️ from Varanasi</p>
+</footer>
+
+</body>
+</html>
